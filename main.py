@@ -2,8 +2,8 @@
 import pyglet
 from pyglet.window import key
 import itertools
-import colorsys
 from tag import Tag
+from utils import hsv2rgb
 
 # Create a window object
 width,height = 1000, 600
@@ -19,16 +19,6 @@ def on_draw():
         tag.draw()
 
     pyglet.image.get_buffer_manager().get_color_buffer().save("screenshot.png")
-
-
-def hsv2rgb(h,s,v,a=1):
-    """
-    h: 0-360
-    s: 0-1
-    v: 0-1
-    """
-    r,g,b=colorsys.hsv_to_rgb(h/360.0,s,v)
-    return r,g,b,a
 
 
 words = "Python C Rust C++ C# Java Objective-C Erlang Elixir Haskell PHP Swift SQL bash fish Assembly lisp XML json YAML markdown Ruby Perl R HTML CSS".split(" ")
